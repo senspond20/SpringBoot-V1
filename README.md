@@ -4,6 +4,7 @@
 
 
 
+### helloController
 
 + helloController
 
@@ -49,13 +50,6 @@
     .andExpect(content().string(hello));
     mvc.perform의 결과를 검증
     음답 본문의 내용을 검증
-
-    get,satus,content는
-    
-  import static org.springframework.test.web.servlet.request.  MockMvcRequestBuilders.*;
-    import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-    가 필요하다.
-
     ```
 
     ```java
@@ -86,7 +80,58 @@
                 .andExpect(status().isOk())
                 .andExpect(content().string(hello));
         }
+    }
+    ```
 
-    
+
+## **lombok**
+
++ lombok 플러그인 설치필요
++ 어노테이션을 붙여 getter/setter/생성자 등을 자동으로 만들어준다.
+
+
++ ### HelloResponseDto
+
+    ```java
+    package com.senshig.hello.web.dto;
+
+    import lombok.Getter;
+    import lombok.RequiredArgsConstructor;
+
+    @Getter
+    @RequiredArgsConstructor
+    public class HelloResponseDto {
+        private final String name;
+        private final int amount;
+    }
+    ```
+
++ ### HelloResponseDtoTest
+
+    ```java
+    package com.senshig.hello.java.dto;
+
+    import static org.assertj.core.api.Assertions.assertThat;
+    import com.senshig.hello.web.dto.HelloResponseDto;
+
+    import org.junit.Test;
+
+
+    public class HelloResponseDtoTest {
+        
+        @Test
+        public void 롬복_기능_테스트(){
+            //given
+            String name ="test";
+            int amount = 1000;
+
+            //when
+            HelloResponseDto dto = new HelloResponseDto(name,amount);
+
+            //then
+            assertThat(dto.getName()).isEqualTo(name);
+            assertThat(dto.getAmount()).isEqualTo(amount);
+
+        }
     }
     ```
