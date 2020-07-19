@@ -1,9 +1,3 @@
-# SpringBoot
-
-+ gradle
-
-+ 테스트 코드 작성
-```java
 package com.senshig.hello.java;
 
 import com.senshig.hello.web.HelloController;
@@ -34,4 +28,3 @@ public class HelloControllerTest {
 
   
 }
-```
