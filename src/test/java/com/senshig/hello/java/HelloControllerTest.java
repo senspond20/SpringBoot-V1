@@ -19,12 +19,27 @@ public class HelloControllerTest {
     private MockMvc mvc;
 
     @Test
-    public void hello가_리턴된다() throws Exception {
-        String hello = "hello";
+    public void hello_응답_패스하니() throws Exception {
+        String hello = "hello3";
+        mvc.perform(get("/hello"))
+            .andExpect(status().isOk());
+     }
+
+
+    @Test
+    public void hello_world가_리턴되니() throws Exception {
+        String str = "hello_world";
         mvc.perform(get("/hello"))
             .andExpect(status().isOk())
-            .andExpect(content().string(hello));
+            .andExpect(content().string(str));
     }
 
+    @Test
+    public void hello가_리턴되니() throws Exception {
+        String str = "hello";
+        mvc.perform(get("/hello"))
+            .andExpect(status().isOk())
+            .andExpect(content().string(str));
+    }
   
 }

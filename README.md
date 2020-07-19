@@ -35,7 +35,7 @@
     여기서는 SpringRunner라는 스프링 실행자 사용.
 
     @WebMvcTest
-    SpringMVC 에 집중할 수 있는 어노테이션
+    MVC를 위한 테스트, 컨트롤러가 예상대로 동작하는지 테스트하는데 사용된다.
 
     private MockMvc mvc
     웹 API를 테스트할 때 사용. 스프링MVC의 시작점
@@ -49,7 +49,7 @@
 
     .andExpect(content().string(hello));
     mvc.perform의 결과를 검증
-    음답 본문의 내용을 검증
+    응답 본문의 내용을 검증
     ```
 
     ```java
